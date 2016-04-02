@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @e[:title] %></title>
+    <base href="/">
+    <link rel="manifest" href="manifest.json">
+    <% @e[:jses].each do |js| %>
+    <script src="<%= js %>"></script>
+    <% end %>
+    <% @e[:csses].each do |css| %>
+    <link rel="stylesheet" href="<%= css %>">
+    <% end %>
+  </head>
+  <body onload="loadPage( 
+		<%= jsparams(@e[:lpparams]) %>
+		);">
+  </body>
+</html>

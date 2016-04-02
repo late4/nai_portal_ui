@@ -1,0 +1,321 @@
+main .paddedContainer{
+    padding:10px;
+}
+
+main h1{
+    margin:5px 0px;
+    height:40px;
+}
+
+main h2{
+    margin:5px 0px;
+    clear:both;
+}
+
+main h3{
+    margin:5px 0px;
+    clear:both;
+}
+
+main hr{
+    clear:both;
+}
+
+main .caseDetail_controls{
+    margin:5px 0px;
+    height:40px;
+    text-align:right;
+}
+
+main .caseDetail_controls_fixed{
+    position:fixed;
+    top:95px;
+    right:calc(20% + 15px);
+    z-index:1000;
+    height:40px;
+    text-align:right;
+}
+
+main .imageButton{
+    width:36px;
+    height:36px;
+    border-style:outset;
+    border-width:2px;
+    border-color:dimgray;
+}
+
+main .imageButton.selected{
+    border-style:inset;
+    border-width:2px;
+    border-color:red;
+}
+
+main .caseDetail_properties dt{
+    display:block;
+    margin:0px 0px 5px 0px;
+    padding:3px;
+    height:25px;
+    float:left;
+    background-color:darkgray;
+    border-style:solid;
+    border-width:1px;
+    border-color:dimgray;
+}
+
+main .caseDetail_properties dd{
+    display:block;
+    margin:0px 20px 5px -1px;
+    padding:3px;
+    height:25px;
+    float:left;
+    background-color:lightgray;
+    border-style:solid;
+    border-width:1px;
+    border-color:dimgray;
+    white-space:nowrap;
+}
+
+main .caseDetail_estimationComparison{
+    clear:both;
+    padding-top:10px;
+}
+
+main .caseDetail_estimationComparison th{
+    padding:0px;
+    text-align:right;
+}
+
+main .caseDetail_estimationComparison td{
+    padding:0px;
+}
+
+main .caseDetail_properties_fixedwidth{
+    margin:0px;
+    padding:0px;
+}
+
+main .caseDetail_properties_fixedwidth dt{
+    display:block;
+    margin:0px 0px 5px 0px;
+    padding:3px;
+    height:25px;
+    width:30px;
+    float:left;
+    background-color:darkgray;
+    border-style:solid;
+    border-width:1px;
+    border-color:dimgray;
+}
+
+main .caseDetail_properties_fixedwidth dd{
+    display:block;
+    margin:0px 20px 5px -1px;
+    padding:3px;
+    height:25px;
+    width:80px;
+    float:left;
+    text-align:right;
+    background-color:lightgray;
+    border-style:solid;
+    border-width:1px;
+    border-color:dimgray;
+}
+
+main span.elmedit_editable{
+    display:inline-block;
+}
+
+main input.elmedit_editor, main select.elmedit_editor{
+    width:calc(100% - 6px);
+    height:calc(100% - 6px);
+}
+
+main .caseDetail_internalnote{
+    clear:both;
+    display:block;
+    margin:5px 0px;
+    padding:3px;
+    word-break:break-all;
+    min-height:70px;
+    overflow-y:visible;
+    background-color:lightgray;
+    border-style:solid;
+    border-width:1px;
+    border-color:dimgray;
+}
+
+main textarea.elmedit_editor{
+    width:calc(100% - 6px);
+    height:calc(100% - 6px);
+    resize:none;
+}
+
+main .caseDetail_branch{
+    display:block;
+    margin:5px 0px;
+    padding:0px;
+}
+
+main .caseDetail_branchprogress{
+    clear:both;
+    display:block;
+    padding:0px;    
+}
+
+main .caseDetail_timeline{
+}
+
+.editModeBackground{
+    background-color:mistyrose;
+}
+
+#timelineEdit{
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index:1000;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.5);
+}
+
+#timelineEditPanel{
+    margin:100px calc(30% + 20px) 20px calc(10% + 20px);
+    width:calc(60% - 60px);
+    height:calc(100% - 140px);
+    padding:10px;
+    overflow:scroll;
+    background-color:whitesmoke;
+    border-style:solid;
+    border-width:1px;
+    border-color:dimgray;
+    box-shadow:0px 0px 10px 3px rgba(0,0,0,0.4);
+    text-align:center;
+}
+
+#timelineEdit_errorMsg{
+    color:#cc7eb1;
+}
+
+#timelineEdit_editor{
+    border-collapse:sepalate;
+    border-spacing:0px 1px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#timelineEdit_editor td{
+    padding:2px 5px;
+    vertical-align:middle;
+}
+
+#timelineEdit_editor td input{
+    width:100%;
+}
+
+#timelineEdit_editor .timelineEdit_nullRow td{
+    background-color:azure;
+}
+
+#timelineEdit_editor .timelineEdit_completedRow td{
+    background-color:lime;
+}
+
+#timelineEdit_editor .timelineEdit_inprogressRow td{
+    background-color:orange;
+}
+
+#timelineEdit_editor .timelineEdit_untouchedRow td{
+    background-color:gray;
+}
+
+#timelineEdit_editor .timelineEdit_revokedRow td{
+    background-color:midnightblue;
+}
+
+/* Styles for timeline (additional styles on vis.js) */
+
+.vis-item.completed{
+    background-color:lime;
+}
+
+.vis-item.inprogress{
+    background-color:orange;
+}
+
+.vis-item.untouched{
+    background-color:gray;
+}
+
+.vis-item.revoked{
+    background-color:midnightblue;
+}
+
+.vis-item .nooverflow{
+    overflow:hidden;
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+
+.vis-item .nooverflow *{
+    vertical-align:middle;
+}
+
+.vis-item abbr{
+    margin-right:5px;
+    font-size:30px;
+    font-weight:bold;
+    color:white;
+    vertical-align:middle;
+}
+
+.vis-item div .individualreward{
+    height:30px;
+}
+
+.vis-item div .individualreward span{
+    display:inline-block;
+    margin:0px 2px;
+    padding:3px;
+    background-color:lightgray;
+    border-color:silver;
+    border-style:solid;
+    border-width:1px;
+}
+
+.vis-item div .individualreward span span{
+    display:inline;
+    border-style:none;
+    border-width:0px;
+    margin:0px;
+    padding:0px;
+}
+
+.vis-item div .datetime{
+    display:none;
+    margin:12px 0px 0px 0px;
+    padding:0px 5px;
+    position:absolute;
+    z-index:100;
+    background-color:whitesmoke;
+    box-shadow:0px 0px 10px 3px rgba(0,0,0,0.4);
+}
+
+.vis-item:hover div .datetime{
+    display:block;
+}
+
+.vis-item div .datetime dl{
+    margin:0px;
+    padding:0px;
+}
+
+.vis-item div .datetime dl dt{
+    float:left;
+    clear:both;
+}
+
+.vis-item div .datetime dl dd{
+    margin:0px 0px 0px 40px;
+}

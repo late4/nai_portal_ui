@@ -1,0 +1,49 @@
+<div id="filterPanel" ondblclick="document.getElementById('filters').style.display=document.getElementById('filters').style.display!='none'?'none':'block';">
+  <h1 id="filtersHeader">Filters <span>(open/close by double click)</span></h1>
+  <div id="filters" style="display:block;">
+    <dl>
+      <dt>Due</dt>
+      <dd>
+        <select id="listFilter_duecond" ondblclick="event.stopPropagation();">
+          <option value="null">--</option>
+          <option value="eq">Equal to</option>
+          <option value="et">Earlier than</option>
+          <option value="lt">Later than</option>
+        </select>
+        <input type="date" id="listFilter_due" ondblclick="event.stopPropagation();">
+      <dt>Date of order</dt>
+      <dd>
+	<select id="listFilter_orderdatecond" ondblclick="event.stopPropagation();">
+	  <option value="null">--</option>
+	  <option value="eq">Equal to</option>
+	  <option value="et">Earlier than</option>
+	  <option value="lt">Later than</option>
+	</select>
+	<input type="date" id="listFilter_orderdate" ondblclick="event.stopPropagation();">
+      </dd>
+      <dt>Source language</dt>
+      <dd onload="initLanguageSelector('listFilter_src');">
+	<select id="listFilter_src" ondblclick="event.stopPropagation();">
+	  <option value="null">--</option>
+	</select>
+	<script>initLanguageSelector("listFilter_src");</script>
+      </dd>
+      <dt>Destination language</dt>
+      <dd>
+	<select id="listFilter_dest" ondblclick="event.stopPropagation();">
+	  <option value="null">--</option>
+	</select>
+	<script>initLanguageSelector("listFilter_dest");</script>
+      </dd>
+    <input type="button" value="Apply filters" onclick="applyFilters();">
+  </div>
+</div>
+<div id="list" class="listView3"></div>
+<script>initList('list','caseslist.ejs','casesdata.json');</script>
+      
+
+<div id="timetbl">
+
+<img src="images/timetbl.png" style="width:100%">
+
+</div>

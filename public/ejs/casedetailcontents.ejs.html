@@ -1,0 +1,145 @@
+<h2>Basic information</h2>
+<div class="caseDetail_clientfullname"><a href="client/<%= data[0]["clientid"] %>"><button class="clientfullnamebutton"><%= data[0]["clientfullname"] %></button></a></div>
+<dl class="caseDetail_properties">
+  <dt>ID</dt>
+  <dd class="caseDetail_id"><%= data[0]["id"] %></dd>
+  <dt>Ordered at</dt>
+  <dd class="caseDetail_orderdate"><%= data[0]["orderdate"] %></dd>
+  <dt>Src</dt>
+  <dd class="caseDetail_src"><%= data[0]["src"] %></dd>
+</dl>
+<table class="caseDetail_estimationComparison">
+  <tr>
+    <th>Estimated</th>
+    <td>
+      <dl class="caseDetail_properties_fixedwidth">
+	<dt>Due</dt>
+	<dd style="width:200px;"><%= data[0]["estimatedDue"] %></dd>
+	<dt>Price</dt>
+	<dd>&yen;<%= Number(data[0]["estimatedPrice"]).toLocaleString() %></dd>
+      </dl>
+    </td>
+  </tr>
+  <tr>
+    <th>Current</th>
+    <td>
+      <dl class="caseDetail_properties_fixedwidth">
+	<dt>Due</dt>
+	<dd style="width:200px;" class="elmedit_reqrecalc">
+	  <span class="elmedit_view"><%= data[0]["due"] %></span>
+	  <span class="elmedit_recalcstatement" style="display:none;">data[0]["due"]</span>
+	</dd>
+	<dt>Price</dt>
+	<dd class="elmedit_reqrecalc">
+	  <span class="elmedit_view">&yen;<%= Math.floor(data[0]["unitreward"]*data[0]["wc"]*data[0]["rewardratio"]/100).toLocaleString() %></span>
+	  <span class="elmedit_recalcstatement" style="display:none;">Math.floor(data[0]["unitreward"]*data[0]["wc"]*data[0]["rewardratio"]/100)</span>
+	  <span class="elmedit_viewtemplate" style="display:none;">"&yen;"+newValue.toLocaleString()</span>
+	</dd>
+      </dl>
+    </td>
+  </tr>
+</table>
+<h2>Overall progress</h2>
+<div class="caseDetail_branch">
+  <div class="caseDetail_internalnote elmedit_editable">
+    <span class="elmedit_view"><%= data[0]["internalnote"].split("\n").join("<br>") %></span>
+    <textarea class="elmedit_editor" rows="4" cols="50" style="display:none;"><%= data[0]["internalnote"].split("\n").join("<br>") %></textarea>
+    <span class="elmedit_datasource" style="display:none;">data[0]["internalnote"]</span>
+    <span class="elmedit_viewtemplate" style="display:none;">newValue.split("\n").join("<br>")</span>
+  </div>
+  <div class="caseDetail_branchheader">
+    <dl class="caseDetail_properties">
+      <dt>Due</dt>
+      <dd class="caseDetail_due">
+	<span class="elmedit_editable">
+	  <span class="elmedit_view"><%= data[0]["due"].split(" ")[0] %></span>
+	  <input class="elmedit_editor" type="date" value="<%= data[0]["due"].split(" ")[0] %>" style="display:none;">
+	  <span class="elmedit_evalonchange" style="display:none;">data[0]["due"]=newValue+data[0]["due"].substring(data[0]["due"].indexOf(" "));</span>
+	  <span class="elmedit_validation" style="display:none;">newValue.length!=0</span>
+	</span>
+	<span class="elmedit_editable">
+	  <span class="elmedit_view"><%= data[0]["due"].split(" ")[1] %></span>
+	  <input class="elmedit_editor" type="time" step="1" value="<%= data[0]["due"].split(" ")[1] %>" style="display:none;">
+	  <span class="elmedit_evalonchange" style="display:none;">data[0]["due"]=data[0]["due"].substring(0,data[0]["due"].indexOf(" ")+1)+((newValue.lastIndexOf(":")==2?(newValue+":00"):newValue))+data[0]["due"].substring(data[0]["due"].lastIndexOf(" "));</span>
+	  <span class="elmedit_viewtemplate" style="display:none;">newValue.lastIndexOf(":")==2?(newValue+":00"):newValue</span>
+	  <span class="elmedit_validation" style="display:none;">newValue.length!=0</span>
+	</span>
+	<span class="elmedit_editable">
+	  <span class="elmedit_view"><%= data[0]["due"].split(" ")[2] %></span>
+	  <select class="elmedit_editor" style="display:none;" id="dueTimezoneSelect-<%= data[0]["branchid"] %>"></select>
+	  <span class="elmedit_evalonchange" style="display:none;">data[0]["due"]=data[0]["due"].substring(0,data[0]["due"].lastIndexOf(" ")+1)+newValue;</span>
+	  <script>initTimezoneSelector("dueTimezoneSelect-<%= data[0]["branchid"] %>","<%= data[0]["due"].split(" ")[2] %>");</script>
+	</span>	
+      </dd>
+      <dt>Dest</dt>
+      <dd class="caseDetail_dest elmedit_editable">
+	<span class="elmedit_view"><%= data[0]["dest"] %></span>
+	<select class="elmedit_editor" id="destLangSelect-<%= data[0]["branchid"] %>" style="display:none;"></select>
+	<span class="elmedit_datasource" style="display:none;">data[0]["dest"]</span>
+	<script>initLanguageSelector("destLangSelect-<%= data[0]["branchid"] %>","<%= data[0]["dest"] %>");</script>
+      </dd>
+      <dt>WC</dt>
+      <dd class="caseDetail_wc elmedit_editable">
+	<span class="elmedit_view"><%= data[0]["wc"] %>w</span>
+	<input class="elmedit_editor" type="number" min="0" value="<%= data[0]["wc"] %>" style="display:none;">
+	<span class="elmedit_datasource" style="display:none;">data[0]["wc"]</span>
+	<span class="elmedit_viewtemplate" style="display:none;">newValue+"w"</span>
+      </dd>
+      <dt>Unit price</dt>
+      <dd class="caseDetail_unitreward elmedit_editable">
+	<span class="elmedit_view">@&yen;<%= data[0]["unitreward"] %></span>
+	<input class="elmedit_editor" type="number" min="0" value="<%= data[0]["unitreward"] %>" style="display:none;">
+	<span class="elmedit_datasource" style="display:none;">data[0]["unitreward"]</span>
+	<span class="elmedit_viewtemplate" style="display:none;">"@&yen;"+newValue</span>
+      </dd>
+      <dt>Price ratio</dt>
+      <dd class="caseDetail_rewardratio elmedit_editable">
+	<span class="elmedit_view">&times;<%= data[0]["rewardratio"] %>%</span>
+	<input class="elmedit_editor" type="number" min="0" value="<%= data[0]["rewardratio"] %>" style="display:none;">
+	<span class="elmedit_datasource" style="display:none;">data[0]["rewardratio"]</span>
+	<span class="elmedit_viewtemplate" style="display:none;">"&times;"+newValue+"%"</span>
+      </dd>
+      <dt>Total price</dt>
+      <dd class="caseDetail_totalreward elmedit_reqrecalc">
+	<span class="elmedit_view">&yen;<%= Math.floor(data[0]["unitreward"]*data[0]["wc"]*data[0]["rewardratio"]/100).toLocaleString() %></span>
+	<span class="elmedit_recalcstatement" style="display:none;">Math.floor(data[0]["unitreward"]*data[0]["wc"]*data[0]["rewardratio"]/100)</span>
+	<span class="elmedit_viewtemplate" style="display:none;">"&yen;"+newValue.toLocaleString()</span>
+      </dd>
+    </dl>
+  </div>
+  <div class="caseDetail_branchprogress">
+    <div class="caseDetail_timeline" id="caseDetail_timeline_<%= data[0]["branchid"] %>" onclick="if(editMode){editTimeline('<%= data[0]["branchid"] %>','caseDetail_timeline_<%= data[0]["branchid"] %>');}"></div>
+    <script>showTimelineView("master","caseDetail_timeline_<%= data[0]["branchid"] %>");</script>
+  </div>
+  <div class="caseDetail_controls">
+    <dl class="caseDetail_properties">
+      <dt>Margin</dt>
+      <dd class="caseDetail_totalreward elmedit_reqrecalc">
+	<span class="elmedit_view">&yen;<%= calcMarginForBranch(data[0]["branchid"]).toLocaleString() %></span>
+	<span class="elmedit_recalcstatement" style="display:none;">calcMarginForBranch(data[0]["branchid"])</span>
+	<span class="elmedit_viewtemplate" style="display:none;">"&yen;"+newValue.toLocaleString()</span>
+      </dd>
+    </dl>
+    <img src="img/files.png" alt="Download files" class="imageButton" onclick="downloadCurrentFilesOfBranch('<%= data[0]["branchid"] %>');">
+    <img src="img/messages.png" alt="Show relevant messages" class="imageButton" onclick="moveToMessageRelevantToBranch('master');">
+  </div>
+</div>
+<h2>Progress of sub-branches</h2>
+<% for(var i=1;i<data.length;i++){ %>
+<div class="caseDetail_branch">
+  
+</div>
+<% } %>
+<img src="img/add.png" width="60px;" alt="Add a new branch" onclick="showNewBranchPanel();">
+<!-- Timeline edit panel -->
+<div id="timelineEdit" onclick="event.stopPropagation();" style="display:none;">
+  <div id="timelineEditPanel">
+    <h1>Edit timeline for branch '<span id="timelineEdit_branchid">--</span>'</h1>
+    <p>Timezone for the following dates and times is set to <select id="timelineEditTimezoneSelect" onchange="loadTimelineEditor('timelineEdit_editor');"></select></p>
+    <script>initTimezoneSelector("timelineEditTimezoneSelect",getCurrentTimezone());</script>
+    <p id="timelineEdit_errorMsg"></p>
+    <table id="timelineEdit_editor"></table>
+    <button class="okButton" onclick="confirmTimelineEdit();">OK</button>
+    <button class="cancelButton" onclick="cancelTimelineEdit();">Cancel</button>
+  </div>
+</div>

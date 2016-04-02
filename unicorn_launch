@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export GEM_PATH=$GEM_PATH:/home/portal/web/ruby/2.2
+
+ruby/2.2/bin/unicorn

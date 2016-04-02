@@ -1,0 +1,26 @@
+/usr/bin/ruby2.2 -r ./siteconf20160211-5355-o8ffp0.rb extconf.rb
+checking for mmap() in sys/mman.h... yes
+checking for munmap() in sys/mman.h... yes
+checking for mremap() in sys/mman.h... yes
+checking for linux/tcp.h... yes
+checking for getpagesize() in unistd.h... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_thread_io_blocking_region()... yes
+checking for GCC 4+ atomic builtins... yes
+creating Makefile
+
+make "DESTDIR=" clean
+rm -f 
+rm -f raindrops_ext.so  *.o  *.bak mkmf.log .*.time
+
+make "DESTDIR="
+gcc -I. -I/usr/include/ruby/2.2 -I/usr/include/ruby/2.2/ruby/backward -I/usr/include/ruby/2.2 -I. -DHAVE_MMAP -DHAVE_MUNMAP -DHAVE_MREMAP -DHAVE_LINUX_TCP_H -DHAVE_GETPAGESIZE -DHAVE_RB_THREAD_IO_BLOCKING_REGION -DHAVE_GCC_ATOMIC_BUILTINS    -D_GNU_SOURCE  -D_BSD_SOURCE  -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o linux_inet_diag.o -c linux_inet_diag.c
+gcc -I. -I/usr/include/ruby/2.2 -I/usr/include/ruby/2.2/ruby/backward -I/usr/include/ruby/2.2 -I. -DHAVE_MMAP -DHAVE_MUNMAP -DHAVE_MREMAP -DHAVE_LINUX_TCP_H -DHAVE_GETPAGESIZE -DHAVE_RB_THREAD_IO_BLOCKING_REGION -DHAVE_GCC_ATOMIC_BUILTINS    -D_GNU_SOURCE  -D_BSD_SOURCE  -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o linux_tcp_info.o -c linux_tcp_info.c
+gcc -I. -I/usr/include/ruby/2.2 -I/usr/include/ruby/2.2/ruby/backward -I/usr/include/ruby/2.2 -I. -DHAVE_MMAP -DHAVE_MUNMAP -DHAVE_MREMAP -DHAVE_LINUX_TCP_H -DHAVE_GETPAGESIZE -DHAVE_RB_THREAD_IO_BLOCKING_REGION -DHAVE_GCC_ATOMIC_BUILTINS    -D_GNU_SOURCE  -D_BSD_SOURCE  -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o raindrops.o -c raindrops.c
+rm -f raindrops_ext.so
+gcc -shared -o raindrops_ext.so linux_inet_diag.o linux_tcp_info.o raindrops.o -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic  -m64  -L/usr/lib64/ruby/2.2 -lruby  -lpthread -ldl -lcrypt -lm   -lc
+
+make "DESTDIR=" install
+/bin/mkdir -p . ./.gem.20160211-5355-1vyemnj
+exit > .RUBYARCHDIR.time
+/usr/bin/install -c -m 0755 raindrops_ext.so ./.gem.20160211-5355-1vyemnj
