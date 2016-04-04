@@ -1,0 +1,10 @@
+<div id="filterPanel" ondblclick="document.getElementById('filters').style.display=document.getElementById('filters').style.display!='none'?'none':'block';">
+  <h1 id="filtersHeader">Filters <span>(open/close by double click)</span></h1>
+  <div id="filters" style="display:block;">
+    <dl>
+    </dl>
+    <input type="button" value="Apply filters" onclick="applyFilters();">
+  </div>
+</div>
+<div id="list" class="listView3"></div>
+<script>initList('list','ejs/messageslist.ejs','json/messagesdata.json');</script>

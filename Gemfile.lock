@@ -3,6 +3,8 @@ GEM
   specs:
     kgio (2.10.0)
     rack (1.6.4)
+    rack-conneg (0.1.5)
+      rack (>= 1.0)
     rack-protection (1.5.3)
       rack
     raindrops (0.15.0)
@@ -20,6 +22,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rack-conneg
   sinatra
   unicorn
 

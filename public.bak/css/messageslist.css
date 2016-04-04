@@ -1,0 +1,45 @@
+@import url("list.css");
+
+main .listView3Row .listView3Column1{
+    text-align:left;
+}
+
+main .listView3Column0{
+    width:70px;
+}
+
+main .listView3Column1{
+    min-width:300px;
+    width:calc(100% - 840px);
+}
+
+main .listView3Column2{
+    width:100px;
+}
+
+main .listView3Column3{
+    width:200px;
+}
+
+main .listView3Column4{
+    width:170px;
+}
+
+main .listView3Column5{
+    width:300px;
+}
+
+/* Contents of detail panel */
+
+main .listView3Detail_replyForm h2{
+    font-size:15px;
+}
+
+main .listView3Detail_replyForm ul{
+    list-style-type:none;
+    margin:0px;
+}
+
+main .listView3Detail_replyForm textarea{
+    resize:none;
+}

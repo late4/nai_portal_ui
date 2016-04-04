@@ -11,6 +11,11 @@ require 'uri'
 require 'pp'
 require 'net/http'
 
+# IP Addr/Port
+# ============
+set :bind, ENV["IP"]
+set :port, ENV["PORT"]
+
 # constants
 # =========
 NOTIFICATION_SUBID_PATH = '/home/portal/web/tmp/subid'
@@ -74,7 +79,8 @@ TABS = {
 
 # main
 # ====
-enable :sessions
+
+#class ServerApp < Sinatra::Base
 
 def jsparams(a)
   q = []
@@ -146,3 +152,16 @@ get '/notification/notify' do
   https.request(req)
   'OK'
 end
+
+get '/case/:epc' do
+  case params[:epc]
+    when "urn:epc:id:gdti:457337761.001.1" then
+      erb :casedetail1
+    when "urn:epc:id:gdti:457337761.001.2" then
+      erb :casedetail2
+    else
+     halt "No such EPC"
+  end
+end
+
+#end

@@ -1,0 +1,46 @@
+<div class="listView3Header">
+  <div class="listView3ColumnItem listView3Column0">Status</div>
+  <div class="listView3ColumnItem listView3Column1">Subject</div>
+  <div class="listView3ColumnItem listView3Column2">From</div>
+  <div class="listView3ColumnItem listView3Column3">To</div>
+  <div class="listView3ColumnItem listView3Column4">Date</div>
+  <div class="listView3ColumnItem listView3Column5">Case ID</div>
+</div>
+<% for(var i=startIndex;i<data.length&&i<startIndex+count;i++){ %>
+<div class="listView3Row" onclick="document.getElementById('listView3Detail<%= i %>').style.display=(document.getElementById('listView3Detail<%= i %>').style.display=='none')?'block':'none';">
+  <div class="listView3ColumnItem listView3Column0"><%= data[i]["status"] %></div>
+  <div class="listView3ColumnItem listView3Column1"><%= data[i]["subject"] %></div>
+  <div class="listView3ColumnItem listView3Column2"><%= data[i]["from"] %></div>
+  <div class="listView3ColumnItem listView3Column3"><%= data[i]["to"].join(", ") %></div>
+  <div class="listView3ColumnItem listView3Column4"><%= data[i]["date"] %></div>
+  <div class="listView3ColumnItem listView3Column5"><%= data[i]["caseid"] %></div>
+  <div class="listView3Detail" id="listView3Detail<%= i %>" style="display:none;" onclick="event.stopPropagation();">
+    <div class="listView3Detail_messageContent">
+      <%= data[i]["messageText"].split("\n").join("<br>") %>
+      <ul>
+	<% for(var j=0;j<data[i]["attachedFiles"].length;j++){ %>
+	   <li><a href="messages/<%= data[i]["messageid"] %>/<%= data[i]["attachedFiles"][j] %>"><%= data[i]["attachedFiles"][j] %></a></li>
+	<% } %>
+      </ul>
+      <div class="listView3Detail_messageConfirmButtons">
+	<input type="button" value="Message confirm">
+	<input type="button" value="Accept case">
+	<input type="button" value="Decline case">
+      </div>
+      <input type="button" value="Show related messages" onclick="showRelatedMessages('<%= data[i]["messageid"] %>');">
+    </div>
+    <hr>
+    <div class="listView3Detail_replyForm">
+      <h2>Reply</h2>
+      <ul>
+	<li>To:<input type="text" value="" size="50"></li>
+	<li>Subject:<input type="text" value="Re: <%= data[i]["subject"] %>" size="50"></li>
+	<li><textarea rows="20" cols="50"></textarea></li>
+	<li>Attachment:<input type="file"></li>
+	<li><input type="checkbox">Enable Accept/Decline selection for reply</li>
+      </ul>
+      <input type="button" value="send">
+    </div>
+  </div>
+</div>
+<% } %>

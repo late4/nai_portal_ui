@@ -1,3 +1,3 @@
-load "server.rb"
+require "./server.rb"
 
-run Sinatra::Application
+run ServerApp

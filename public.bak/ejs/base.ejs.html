@@ -1,0 +1,36 @@
+    <header>
+      <h1>NAIportal</h1>
+      <div>Login as EMURA keigo (Briques et Mortiers, 134 LLC), <a href="/logout">Logout</a></div>
+    </header>
+    <nav>
+      <ul id="menuList">
+	<li><a href="home">Home</a></li>
+	<li><a href="cases">Cases</a></li>
+	<li><a href="messages">Messages</a></li>
+	<li><a href="calendar">Calendar</a></li>
+	<li><a href="bills">Bills</a></li>
+	<li><a href="clients">Clients</a></li>
+	<li><a href="workers">Workers</a></li>
+	<li><a href="managements">Managements</a></li>
+      </ul>
+      <select id="searchType">
+	<option value="case">Case</option>
+	<option value="worker">Worker</option>
+	<option value="client">Client</option>
+	<option value="message">Message</option>
+      </select>
+      <input type="text" id="searchBox" onkeypress="if(event.keyCode==13)invokeGeneralSearch('searchBox','searchResult');">
+      <div id="searchResult"></div>
+    </nav>
+    <aside>
+      sidebar contents
+      <div class="sidebar">
+	<img src="images/sidebar.png" alt="sidebar_image" 
+         style="width:100%;
+		height:50%;
+		position: absolute;
+		top: 0px;">
+      </div>
+    </aside>
+    <main>
+    </main>

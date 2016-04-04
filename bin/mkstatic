@@ -1,0 +1,16 @@
+#!/bin/bash
+
+PUBLIC_DIR=`dirname $0`/../public
+
+cd $PUBLIC_DIR
+
+find . -type l -exec rm {} \;
+
+FILES=`find . -name \*.html`
+
+for FILE in $FILES ; do
+    ABSFILE=`pwd`/$FILE
+
+    LINK=${ABSFILE%.*}
+    ln -s $ABSFILE $LINK
+done

@@ -1,0 +1,89 @@
+/* general styles for filter panel */
+
+main #filterPanel{
+    background-color:whitesmoke;
+}
+
+main #filterPanel:hover{
+    background-color:lavender;
+}
+
+main #filtersHeader{
+    margin:0px;
+    padding:2px;
+    font-size:15px;
+}
+
+main #filtersHeader span{
+    font-weight:normal;
+    font-size:12px;
+}
+
+main #filters{
+    font-size:15px;
+}
+
+main #filters dl{
+    
+}
+
+main #filters dt{
+    
+}
+
+main #filters dd{
+    
+}
+
+
+
+/* general styles for list (listView3) */
+
+main .listView3{
+    padding:0px;
+    margin:0px;
+    overflow-x:scroll;
+}
+
+main .listView3Header{
+    min-width:982px;
+    width:100%;
+    padding:0px;
+    margin:0px;
+    background-color:lightgray;
+    border-style:solid;
+    border-color:silver;
+    border-width:1px;
+}
+
+main .listView3Row{
+    min-width:982px;
+    width:100%;
+    padding:0px;
+    margin:0px;
+    background-color:whitesmoke;
+    border-style:solid;
+    border-color:silver;
+    border-width:0px 1px 1px;
+}
+
+main .listView3Row:hover{
+    background-color:lightyellow;
+}
+
+main .listView3ColumnItem{
+    margin:0px;
+    padding:10px 2px;
+    display:table-cell;
+    text-align:center;
+    word-break:break-all;
+}
+
+main .listView3Detail{
+    margin:0px 10px 10px;
+    padding:5px;
+    background-color:ghostwhite;
+    border-style:solid;
+    border-color:silver;
+    border-width:1px;
+}

@@ -1,0 +1,11 @@
+<div class="paddedContainer">
+  <h1 id="caseDetail_header">Case details</h1>
+  <div class="caseDetail_controls_fixed">
+    <img src="img/edit.png" alt="Edit" class="imageButton" onclick="toggleEditMode(this);">
+    <img src="img/files.png" alt="Download files" class="imageButton" onclick="downloadCurrentFilesOfAll();">
+    <img src="img/history.png" alt="Show revision history" class="imageButton" onclick="showVersionTree();">
+    <img src="img/messages.png" alt="Show relevant messages" class="imageButton" onclick="moveToMessageRelevantToCase();">
+  </div>
+  <div id="casedetail"></div>
+  <script>loadCaseDetail("casedetail","ejs/casedetailcontents.ejs","json/casedetaildata.json?id="+window.location.href.split("/").pop());</script>
+</div>

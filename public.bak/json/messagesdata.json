@@ -1,0 +1,26 @@
+[
+    {
+	"status":"unread",
+	"messageid":"0001ke_20151210_1",
+	"caseid":"urn:epc:id:gdti:457337761.001.1",
+	"date":"2015-12-10 12:34:56",
+	"from":"0001ke",
+	"to":["tr0001ke","qas0001ke"],
+	"subject":"Message title",
+	"messageText":"hogehogefugafuga\n日本語です。foobarfoobar",
+	"attachedFiles":["test.docx"],
+	"replyOf":""
+    },
+    {
+	"status":"unread",
+	"messageid":"0001ke_20151210_1",
+	"caseid":"urn:epc:id:gdti:457337761.001.1",
+	"date":"2015-12-10 12:34:56",
+	"from":"0001ke",
+	"to":["tr0001ke","qas0001ke"],
+	"subject":"Message title日本語",
+	"messageText":"hogehogefugafuga\nfoobarfoobar",
+	"attachedFiles":["test.docx"],
+	"replyOf":""
+    }
+]

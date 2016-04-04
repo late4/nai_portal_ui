@@ -1,0 +1,56 @@
+<div class="listView3Header">
+  <div class="listView3ColumnItem listView3Column0">Status</div>
+  <div class="listView3ColumnItem listView3Column1">Client</div>
+  <div class="listView3ColumnItem listView3Column2">Due</div>
+  <div class="listView3ColumnItem listView3Column3">Src</div>
+  <div class="listView3ColumnItem listView3Column4">Dest</div>
+  <div class="listView3ColumnItem listView3Column5">WC</div>
+  <div class="listView3ColumnItem listView3Column6">ID</div>
+  <div class="listView3ColumnItem listView3Column7">Coord.</div>
+</div>
+<% for(var i=startIndex;i<data.length&&i<startIndex+count;i++){ %>
+<div class="listView3Row" onclick="document.getElementById('listView3Detail<%= i %>').style.display=(document.getElementById('listView3Detail<%= i %>').style.display=='none')?'block':'none';">
+  <div class="listView3ColumnItem listView3Column0"><button class="listView3statusButton_<%= data[i]["statusAbbr"] %>"><%= data[i]["status"] %></button></div>
+  <div class="listView3ColumnItem listView3Column1"><%= data[i]["clientname"] %></div>
+  <div class="listView3ColumnItem listView3Column2"><%= data[i]["due"] %></div>
+  <div class="listView3ColumnItem listView3Column3"><%= data[i]["src"] %></div>
+  <div class="listView3ColumnItem listView3Column4"><%= data[i]["dest"] %></div>
+  <div class="listView3ColumnItem listView3Column5"><%= data[i]["wc"] %></div>
+  <div class="listView3ColumnItem listView3Column6"><%= data[i]["id"] %></div>
+  <div class="listView3ColumnItem listView3Column7"><%= data[i]["workerid"] %></div>
+  <div class="listView3Detail" id="listView3Detail<%= i %>" style="display:none;" onclick="event.stopPropagation();">
+    <div class="listView3Detail_text">
+      <div class="listView3Detail_clientfullname"><a href="client/<%= data[i]["clientid"] %>"><button class="listView3Detail_clientfullnamebutton"><%= data[i]["clientfullname"] %></button></a></div>
+      <div class="listView3Detail_reward">@ <%= data[i]["unitreward"] %> (<%= data[i]["rewardratio"] %>%), total: &yen; <%= Math.floor(data[i]["unitreward"]*data[i]["wc"]*data[i]["rewardratio"]/100).toLocaleString() %></div>
+    </div>
+    <div class="listView3Detail_text">
+      <div class="listView3Detail_freenote"><%= data[i]["freenote"] %></div>
+      <div class="listView3Detail_orderdate">Ordered at <%= data[i]["orderdate"] %></div>
+    </div>
+    <div class="listView3Detail_underrow">
+      <div class="listView3Detail_workerlinks">
+	<% for(var k=0;k<data[i]["hist"].length;k++){ %>
+	   <% if(data[i]["hist"][k]["work"]=="TR"){ %>
+	   <a href="worker/<%= data[i]["hist"][k]["worker"] %>" class="listView3Detail_trlink"><button class="listView3workerButton_tr"><%= data[i]["hist"][k]["worker"] %></button></a>
+	   <% }else if(data[i]["hist"][k]["work"]=="QAS"){ %>
+	   <a href="worker/<%= data[i]["hist"][k]["worker"] %>" class="listView3Detail_qaslink"><button class="listView3workerButton_qas"><%= data[i]["hist"][k]["worker"] %></button></a>
+	   <% } %>
+	<% } %>
+      </div>
+      <a href="case/<%= data[i]["id"] %>" class="listView3Detail_detaillink">Detail</a>
+    </div>
+    <div class="listView3Detail_progress">
+      <ol>
+	<% for(var j=0;j<data[i]["subdue"].length;j++){ %>
+	   <% var histObj=data[i]["hist"].find(function(element,index,array){return element["work"]==this},data[i]["subdue"][j]["work"]); %>
+	   <% if(typeof histObj==="undefined"){ %>
+	   <li><%= data[i]["subdue"][j]["work"] %><span class="details">Due: <%= data[i]["subdue"][j]["date"] %></span></li>
+	   <% }else{ %>
+	   <li><%= data[i]["subdue"][j]["work"] %><span class="details">Due: <%= data[i]["subdue"][j]["date"] %><br>Completed at <%= histObj["date"] %></span></li>
+	   <% } %>
+	<% } %>
+      </ol>
+    </div>
+  </div>
+</div>
+<% } %>
