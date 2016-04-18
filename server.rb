@@ -156,12 +156,18 @@ end
 get '/case/:epc' do
   case params[:epc]
     when "urn:epc:id:gdti:457337761.001.1" then
-      erb :casedetail1
+      erb :case_detail1
     when "urn:epc:id:gdti:457337761.001.2" then
-      erb :casedetail2
+      erb :case_detail2
     else
      halt "No such EPC"
   end
 end
 
-#end
+get '/client/:id' do
+  erb :client_detail
+end
+
+get '/worker/:id' do
+  erb :worker_detail
+end
