@@ -5,6 +5,7 @@
 # =======
 require 'sinatra'
 require 'uri'
+require 'aws-sdk'
 
 # debug
 # =====
@@ -170,4 +171,42 @@ end
 
 get '/worker/:id' do
   erb :worker_detail
+end
+
+get '/core-api-test' do
+  lambda = Aws::Lambda::Client.new(region:"ap-northeast-1") # XXX: ~/.aws/config not read?
+  
+  begin
+    param = { :name => "134" }
+    req = { :className => "TestAPI", :methodName => "helloName", :paramJSON => param.to_json }
+    req_json = req.to_json
+    resp = lambda.invoke( function_name: "portalcore", payload: req_json )
+
+    resp.payload
+  rescue => e
+    e.message
+  end
+end
+
+post '/req' do
+  lambda = Aws::Lambda::Client.new(region:"ap-northeast-1") # XXX
+  
+  begin
+      param = request.body.read
+      resp = lambda.invoke( function_name: "portalcore", payload: param)
+      
+      if resp[:status_code] != 200
+        raise "Response code " + resp[:status_code].to_s + " from NIMONO Core¥n¥n" + resp.payload.read
+      end
+
+      JSON.parse('[' + resp.payload.read + ']').first # XXX: bare string is not valid as JSON
+  rescue Aws::Lambda::Errors::ServiceError => e # errors in Lambda world
+      raise "[AWS Lambda] " + e.message
+  rescue => e
+      raise "[General] " + e.message
+  end
+end
+
+error do
+  "NIMONO Frontend ERROR: " + env['sinatra.error'].message
 end
