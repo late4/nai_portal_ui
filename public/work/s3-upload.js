@@ -40,8 +40,8 @@ function updateFile(num) {
 function s3Upload(file) {
      AWS.config.update(
           {
-               accessKeyId: 'AKIAIPCJ5MFLIBTD7UVQ',
-               secretAccessKey: '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', // XXX: hardcoded
+               accessKeyId: 'XXXX',
+               secretAccessKey: 'XXXX', // XXX: hardcoded
                region: 'ap-northeast-1'
 
           }
