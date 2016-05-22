@@ -1,10 +1,82 @@
 <div id="filterPanel" ondblclick="document.getElementById('filters').style.display=document.getElementById('filters').style.display!='none'?'none':'block';">
-  <h1 id="filtersHeader">Filters <span>(open/close by double click)</span></h1>
-  <div id="filters" style="display:block;">
-    <dl>
-    </dl>
-    <input type="button" value="Apply filters" onclick="applyFilters();">
-  </div>
+	<h1 id="filtersHeader">Filters  <span>(open/close by double click)</span></h1>
+
+	<div id="filters" style="display:block;">
+		<div class="filters">
+			<dl>
+				<dt>Status</dt>
+				<dd>
+					<select id="listFilter_status" ondblclick="event.stopPropagation();">
+						<option value="null" selected>--</option>
+						<option value="new">New case</option>
+						<option value="tr_alloc">TR allocation</option>
+						<option value="tr_prog">TR in progress</option>
+						<option value="qas_alloc">QAS allocation</option>
+						<option value="qas_prog">QAS in progress</option>
+						<option value="delivery">Wait for delivery</option>
+						<option value="Completed">Completed</option>
+					</select>
+				</dd>
+
+				<dt>Client</dt>
+				<dd><input type="text" id="listFilter_client" size="50" ondblclick="event.stopPropagation();">
+				</dd>
+
+				<dt>Coordinator in charge</dt>
+				<dd><input type="text" id="listFilter_coordinator" size="50" ondblclick="event.stopPropagation();">
+				</dd>
+
+			</dl>
+		</div>
+		<div class="filters">
+			<dl>
+				<dt>Date of order</dt>
+				<dd><select id="listFilter_orderdatecond" ondblclick="event.stopPropagation();">
+					<option value="null">--</option>
+					<option value="eq">Equal to</option>
+					<option value="et">Earlier than</option>
+					<option value="lt">Later than</option>
+				</select><input type="date" id="listFilter_orderdate" ondblclick="event.stopPropagation();"></dd>
+
+				<dt>Due</dt>
+				<dd><select id="listFilter_duecond" ondblclick="event.stopPropagation();">
+						<option value="null">--</option>
+						<option value="eq">Equal to</option>
+						<option value="et">Earlier than</option>
+						<option value="lt">Later than</option>
+				</select>
+				<input type="date" id="listFilter_due" ondblclick="event.stopPropagation();">
+				</dd>
+			</dl>
+		</div>
+		<div class="filters">
+			<dl>
+				<dt>Source language</dt>
+				<dd onload="initLanguageSelector('listFilter_src');"><select id="listFilter_src" ondblclick="event.stopPropagation();">
+					<option value="null">--</option>
+				</select><script>initLanguageSelector("listFilter_src");</script></dd>
+
+				<dt>Destination language</dt>
+				<dd><select id="listFilter_dest" ondblclick="event.stopPropagation();">
+						<option value="null">--</option>
+				</select><script>initLanguageSelector("listFilter_dest");</script>
+				</dd>
+			</dl>
+		</div>
+		<div class="filters">
+			<dl>
+				<dt>Case ID</dt>
+				<dd><input type="text" id="listFilter_id" size="50" ondblclick="event.stopPropagation();"></dd>
+
+				<dt>Partial match from freenote</dt>
+				<dd><input type="text" id="listFilter_freenote" size="50" ondblclick="event.stopPropagation();"></dd>
+			</dl>
+		</div>
+		<div>
+			<input type="button" value="Apply filters" onclick="applyFilters();">
+		</div>
+	</div>
 </div>
+
 <div id="list" class="listView3"></div>
 <script>initList('list','ejs/messageslist.ejs','json/messagesdata.json');</script>

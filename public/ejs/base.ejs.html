@@ -1,6 +1,7 @@
     <header>
       <h1>NAIportal</h1>
-      <div>Login as EMURA keigo (Briques et Mortiers, 134 LLC), <a href="/logout">Logout</a></div>
+      <div>Login as EMURA keigo <br>
+      (Briques et Mortiers, 134 LLC) </div>
     </header>
     <nav>
       <ul id="menuList">
@@ -12,24 +13,38 @@
 	<li><a href="clients">Clients</a></li>
 	<li><a href="workers">Workers</a></li>
 	<li><a href="managements">Managements</a></li>
+	<li><a href="#"></a></li>
+	<li><a href="#"></a></li>
+	<li><a href="#"></a></li>
+	<li><a href="#"></a></li>
+	<li><a href="#"></a></li>
+	<li><a href="/logout">Logout</a></li>
       </ul>
-      <select id="searchType">
+<!--
+  <select id="searchType">
 	<option value="case">Case</option>
 	<option value="worker">Worker</option>
 	<option value="client">Client</option>
 	<option value="message">Message</option>
       </select>
       <input type="text" id="searchBox" onkeypress="if(event.keyCode==13)invokeGeneralSearch('searchBox','searchResult');">
-      <div id="searchResult"></div>
+      <div id="searchResult">
+-->
+      </div>
     </nav>
     <aside>
-      sidebar contents
-      <div class="sidebar">
-	<img src="images/sidebar.png" alt="sidebar_image" 
+       <div class="sidebar">
+	    <div class="alert-box error"><span>error: </span><br>Write your error message here.</div>
+      	<div class="alert-box success"><span>success: </span><br>Write your success message here.</div>
+      	<div class="alert-box warning"><span>warning: </span><br>Write your warning message here.</div>
+	    <div class="alert-box notice"><span>notice: </span><br>Write your notice message here.</div>
+<!--
+	      <img src="images/sidebar.png" alt="sidebar_image"
          style="width:100%;
-		height:50%;
-		position: absolute;
-		top: 0px;">
+		            height:50%;
+		            position: absolute;
+	              top: 400px;">
+-->
       </div>
     </aside>
     <main>

@@ -1,0 +1,67 @@
+ <div class="sidebar">
+	<h1>Notifications</h1>
+	
+	<% for(var i=0;i<notificationData.length;i++){ %>
+		<div class="alert-box <%= notificationData[i]["notificationLevel"] %>" onclick="<%= doNotificatedAction(notificationData[i]["actionType"]%>,<%= notificationData[i]["actionParam"] %>);">
+			<span><%= notificationData[i]["notificationLevel"] %>: </span><br>
+			<%= notificationMsg[notificationData[i]["messageType"]] %>
+		</div>
+	<% } %>
+</div>
+
+
+
+
+
+
+
+	<div class="alert-box error"><span>error: </span><br>Write your error message here.</div>
+	<div class="alert-box success"><span>success: </span><br>Write your success message here.</div>
+	<div class="alert-box warning"><span>warning: </span><br>Write your warning message here.</div>
+	<div class="alert-box notice"><span>notice: </span><br>Write your notice message here.</div>
+
+
+
+
+
+
+notificationData=[
+	{
+		"id":"123456789",
+		"notificationLevel":"error",
+		"messageType":"",
+		"actionType":"",
+		"actionParam":"",
+		"notifiedDate":"2016-06-14 19:34:00 +09:00"
+	},
+	{
+		"id":"123456789",
+		"notificationLevel":"warning",
+		"messageType":"",
+		"actionType":"",
+		"actionParam":"",
+		"notifiedDate":"2016-06-14 19:34:00 +09:00"
+	},
+	{
+		"id":"123456789",
+		"notificationLevel":"success",
+		"messageType":"delivered",
+		"actionType":"",
+		"actionParam":"",
+		"notifiedDate":"2016-06-14 19:34:00 +09:00"
+	},
+	{
+		"id":"123456789",
+		"notificationLevel":"notice",
+		"messageType":"",
+		"actionType":"",
+		"actionParam":"",
+		"notifiedDate":"2016-06-14 19:34:00 +09:00"
+	}
+]
+
+notificationMsg={
+	"delivered":"のうひんされたよ",
+	"":""
+}
+

@@ -1,214 +1,252 @@
-button.listView3Detail_clientfullnamebutton, button.clientfullnamebutton{
-	/* http://css3button.net/154049 */
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	color: #ffffff;
-	padding: 10px 20px;
-	background: -moz-linear-gradient(
-		top,
-		#000000 0%,
-		#ab0000);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#000000),
-		to(#ab0000));
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px;
-	border-radius: 0px;
-	border: 1px solid #000000;
-	-moz-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,0.7);
-	-webkit-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,0.7);
-	box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,0.7);
-	text-shadow:
-		0px -1px 0px rgba(000,000,000,0.4),
-		0px 1px 0px rgba(255,255,255,0.3);
-}
+button.listView3Detail_clientfullnamebutton, button.clientfullnamebutton {
+	background-color: #d3cbc6;
+border: 2px solid #ffffff;
+border-radius: 7px;
+font-size:20px;
+margin:10px;
+padding:5px 20px;
 
-button.listView3workerButton_tr, button.workerButton_tr{
-/* http://css3button.net/154133 */
+}
+button.listView3workerButton_tr, button.workerButton_tr {
+	/* http://css3button.net/154133 */
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #ffffff;
 	padding: 10px 20px;
-	background: -moz-linear-gradient(
-		top,
-		#ffbdf5 0%,
-		#ff82ec 25%,
-		#fc46e1);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#ffbdf5),
-		color-stop(0.25, #ff82ec),
-		to(#fc46e1));
+	background: -moz-linear-gradient( top, #ffbdf5 0%, #ff82ec 25%, #fc46e1);
+	background: -webkit-gradient( linear, left top, left bottom, from(#ffbdf5), color-stop(0.25, #ff82ec), to(#fc46e1));
 	-moz-border-radius: 30px;
 	-webkit-border-radius: 30px;
 	border-radius: 30px;
 	border: 3px solid #ffffff;
-	-moz-box-shadow:
-		0px 3px 11px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,000,217,1);
-	-webkit-box-shadow:
-		0px 3px 11px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,000,217,1);
-	box-shadow:
-		0px 3px 11px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,000,217,1);
-	text-shadow:
-		0px -1px 0px rgba(000,000,000,0.2),
-		0px 1px 0px rgba(255,255,255,0.3);
+	-moz-box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(255,000,217,1);
+	-webkit-box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(255,000,217,1);
+	box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(255,000,217,1);
+	text-shadow: 0px -1px 0px rgba(000,000,000,0.2), 0px 1px 0px rgba(255,255,255,0.3);
 }
-
-button.listView3workerButton_qas, button.workerButton_qas{
-/* http://css3button.net/154091 */
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        color: #ffffff;
-        padding: 10px 20px;
-        background: -moz-linear-gradient(
-                top,
-                #309df0 0%,
-                #30daf0);
-        background: -webkit-gradient(
-                linear, left top, left bottom,
-                from(#309df0),
-                to(#30daf0));
-        -moz-border-radius: 30px;
-        -webkit-border-radius: 30px;
-        border-radius: 30px;
-        border: 3px solid #ffffff;
-        -moz-box-shadow:
-                0px 3px 11px rgba(000,000,000,0.5),
-                inset 0px 0px 1px rgba(047,193,242,1);
-        -webkit-box-shadow:
-                0px 3px 11px rgba(000,000,000,0.5),
-                inset 0px 0px 1px rgba(047,193,242,1);
-        box-shadow:
-                0px 3px 11px rgba(000,000,000,0.5),
-                inset 0px 0px 1px rgba(047,193,242,1);
-        text-shadow:
-                0px -1px 0px rgba(000,000,000,0.2),
-                0px 1px 0px rgba(255,255,255,0.3);
+button.listView3workerButton_qas, button.workerButton_qas {
+	/* http://css3button.net/154091 */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: -moz-linear-gradient( top, #309df0 0%, #30daf0);
+	background: -webkit-gradient( linear, left top, left bottom, from(#309df0), to(#30daf0));
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	border: 3px solid #ffffff;
+	-moz-box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	-webkit-box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	text-shadow: 0px -1px 0px rgba(000,000,000,0.2), 0px 1px 0px rgba(255,255,255,0.3);
 }
-
-button.workerButton{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    color: #ffffff;
-    padding: 5px 10px;
-    background: -moz-linear-gradient(
-	top,
-	#636363 0%,
-	#adadad);
-    background: -webkit-gradient(
-	linear, left top, left bottom,
-	from(#636363),
-	to(#adadad));
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    border-radius: 30px;
-    border: 3px solid #ffffff;
-    -moz-box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px rgba(047,193,242,1);
-    -webkit-box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px rgba(047,193,242,1);
-    box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px rgba(047,193,242,1);
-    text-shadow:
-    0px -1px 0px rgba(000,000,000,0.2),
-    0px 1px 0px rgba(255,255,255,0.3);
+button.workerButton {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	padding: 5px 10px;
+	background: -moz-linear-gradient( top, #636363 0%, #adadad);
+	background: -webkit-gradient( linear, left top, left bottom, from(#636363), to(#adadad));
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	border: 3px solid #ffffff;
+	-moz-box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	-webkit-box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	text-shadow: 0px -1px 0px rgba(000,000,000,0.2), 0px 1px 0px rgba(255,255,255,0.3);
 }
-
-button.nullworkerButton{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight:bold;
-    color: #ffffff;
-    padding: 5px 20px;
-    background: -moz-linear-gradient(
-	top,
-	#ff0000 0%,
-	#ffa0a0);
-    background: -webkit-gradient(
-	linear, left top, left bottom,
-	from(#ff0000),
-	to(#ffa0a0));
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    border-radius: 30px;
-    border: 3px solid #ffffff;
-    -moz-box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px rgba(047,193,242,1);
-    -webkit-box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px rgba(047,193,242,1);
-    box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px rgba(047,193,242,1);
-    text-shadow:
-    0px -1px 0px rgba(000,000,000,0.2),
-    0px 1px 0px rgba(255,255,255,0.3);
+button.nullworkerButton {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff;
+	padding: 5px 20px;
+	background: -moz-linear-gradient( top, #ff0000 0%, #ffa0a0);
+	background: -webkit-gradient( linear, left top, left bottom, from(#ff0000), to(#ffa0a0));
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	border: 3px solid #ffffff;
+	-moz-box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	-webkit-box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	box-shadow: 0px 3px 11px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(047,193,242,1);
+	text-shadow: 0px -1px 0px rgba(000,000,000,0.2), 0px 1px 0px rgba(255,255,255,0.3);
 }
-
-.listView3statusButton_new, .listView3statusButton_tr_alloc, .listView3statusButton_tr_prog,
-.listView3statusButton_qas_alloc, .listView3statusButton_qas_prog, .listView3statusButton_delivery,
-.listView3statusButton_completed {
-    display:inline-block;
-
-    font-weight: bold;
-    font-size: 0.8em;
-
-    border-radius:100px;
-
-    width: 5em;
-    
-    padding: 0.5em 0 0.5em 0;
-    margin:5px;
-
-    box-shadow: 1px 3px 1px 2px rgba(0,0,0,0.4);
+.listView3statusButton_new, .listView3statusButton_tr_alloc, .listView3statusButton_tr_prog, .listView3statusButton_qas_alloc, .listView3statusButton_qas_prog, .listView3statusButton_delivery, .listView3statusButton_completed {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 0.8em;
+	color: #fff;
+	border-radius: 6px;
+	width: 5em;
+	height: 40px;
+	margin: 5px;
 }
-
 .listView3statusButton_new {
-    background-color:#f66;
-    border:2px solid #f00;
-    color:#000;
+	background-color: #ff61a0;
+	border: 1px solid #ff6738;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ff9c6b', endColorstr = '#ff52a3');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ff9c6b', endColorstr = '#ff52a3')";
+	background-image: -moz-linear-gradient(top, #ff9c6b, #ff52a3);
+	background-image: -ms-linear-gradient(top, #ff9c6b, #ff52a3);
+	background-image: -o-linear-gradient(top, #ff9c6b, #ff52a3);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#ff9c6b), to(#ff52a3));
+	background-image: -webkit-linear-gradient(top, #ff9c6b, #ff52a3);
+	background-image: linear-gradient(top, #ff9c6b, #ff52a3);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
 }
-
 .listView3statusButton_tr_alloc {
-    background-color:#ff6;
-    border:2px solid #ff0;
-    color:#000;
+	background-color: #e9ffcc;
+	border: 1px solid #91cc7d;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8fff8f', endColorstr = '#4a9e74');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8fff8f', endColorstr = '#4a9e74')";
+	background-image: -moz-linear-gradient(top, #8fff8f, #4a9e74);
+	background-image: -ms-linear-gradient(top, #8fff8f, #4a9e74);
+	background-image: -o-linear-gradient(top, #8fff8f, #4a9e74);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#8fff8f), to(#4a9e74));
+	background-image: -webkit-linear-gradient(top, #8fff8f, #4a9e74);
+	background-image: linear-gradient(top, #8fff8f, #4a9e74);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
 }
-
 .listView3statusButton_tr_prog {
-    background-color:#6f6;
-    border:2px solid #0f0;
-    color:#000;
+	background-color: #cffff5;
+	border: 1px solid #75e3ff;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#c2fff7', endColorstr = '#00a3af');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#c2fff7', endColorstr = '#00a3af')";
+	background-image: -moz-linear-gradient(top, #c2fff7, #00a3af);
+	background-image: -ms-linear-gradient(top, #c2fff7, #00a3af);
+	background-image: -o-linear-gradient(top, #c2fff7, #00a3af);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#c2fff7), to(#00a3af));
+	background-image: -webkit-linear-gradient(top, #c2fff7, #00a3af);
+	background-image: linear-gradient(top, #c2fff7, #00a3af);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
 }
-
 .listView3statusButton_qas_alloc {
-    background-color:#6ff;
-    border:2px solid #0ff;
-    color:#000;
+	background-color: #fbebff;
+	border: 1px solid #bae4ff;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#7fe9ff', endColorstr = '#36438c');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#7fe9ff', endColorstr = '#36438c')";
+	background-image: -moz-linear-gradient(top, #7fe9ff, #36438c);
+	background-image: -ms-linear-gradient(top, #7fe9ff, #36438c);
+	background-image: -o-linear-gradient(top, #7fe9ff, #36438c);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#7fe9ff), to(#36438c));
+	background-image: -webkit-linear-gradient(top, #7fe9ff, #36438c);
+	background-image: linear-gradient(top, #7fe9ff, #36438c);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
 }
-
 .listView3statusButton_qas_prog {
-    background-color:#66f;
-    border:2px solid #00f;
-    color:#fff;
+	background-color: #fbebff;
+	border: 1px solid #e596ff;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#e3a5eb', endColorstr = '#7123c2');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#e3a5eb', endColorstr = '#7123c2')";
+	background-image: -moz-linear-gradient(top, #e3a5eb, #7123c2);
+	background-image: -ms-linear-gradient(top, #e3a5eb, #7123c2);
+	background-image: -o-linear-gradient(top, #e3a5eb, #7123c2);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#e3a5eb), to(#7123c2));
+	background-image: -webkit-linear-gradient(top, #e3a5eb, #7123c2);
+	background-image: linear-gradient(top, #e3a5eb, #7123c2);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
 }
-
 .listView3statusButton_delivery {
-    background-color:#000;
-    border:2px solid #fff;
-    color:#fff;
+	background-color: #fff9c7;
+border: 1px solid #ffdda1;
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+border-radius: 7px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fff9a1', endColorstr = '#d6a756');
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fff9a1', endColorstr = '#d6a756')";
+background-image: -moz-linear-gradient(top, #fff9a1, #d6a756);
+background-image: -ms-linear-gradient(top, #fff9a1, #d6a756);
+background-image: -o-linear-gradient(top, #fff9a1, #d6a756);
+background-image: -webkit-gradient(linear, center top, center bottom, from(#fff9a1), to(#d6a756));
+background-image: -webkit-linear-gradient(top, #fff9a1, #d6a756);
+background-image: linear-gradient(top, #fff9a1, #d6a756);
+-moz-background-clip: padding;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+
+}
+.listView3statusButton_completed {
+background-color: #d4ffd6;
+border: 1px solid #7cdea1;
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+border-radius: 7px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#54dfdd', endColorstr = '#3aac57');
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#54dfdd', endColorstr = '#3aac57')";
+background-image: -moz-linear-gradient(top, #54dfdd, #3aac57);
+background-image: -ms-linear-gradient(top, #54dfdd, #3aac57);
+background-image: -o-linear-gradient(top, #54dfdd, #3aac57);
+background-image: -webkit-gradient(linear, center top, center bottom, from(#54dfdd), to(#3aac57));
+background-image: -webkit-linear-gradient(top, #54dfdd, #3aac57);
+background-image: linear-gradient(top, #54dfdd, #3aac57);
+-moz-background-clip: padding;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+
+}
+.color1 {
+}
+.color2 {
+}
+.color3 {
+	
+}
+.alert-box {
+	color: #555;
+	border-radius: 10px;
+	font-size: 12px;
+	padding: 10px 36px;
+	margin: 7px;
+}
+.alert-box:hover {
+	border-width: 4px;
+	margin: -3px;
+}
+.alert-box span {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.error {
+	background: #ffecec url('/images/error.png') no-repeat 10px 50%;
+	border: 1px solid #f5aca6;
+}
+.success {
+	background: #e9ffd9 url('/images/success.png') no-repeat 10px 50%;
+	border: 1px solid #a6ca8a;
+}
+.warning {
+	background: #fff8c4 url('/images/warning.png') no-repeat 10px 50%;
+	border: 1px solid #f2c779;
+}
+.notice {
+	background: #e3f7fc url('/images/notice.png') no-repeat 10px 50%;
+	border: 1px solid #8ed9f6;
 }

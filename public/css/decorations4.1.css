@@ -1,0 +1,248 @@
+button.listView3Detail_clientfullnamebutton, button.clientfullnamebutton{
+	/* http://css3button.net/154049 */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#000000 0%,
+		#ab0000);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#000000),
+		to(#ab0000));
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	border: 1px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+
+button.listView3workerButton_tr, button.workerButton_tr{
+/* http://css3button.net/154133 */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ffbdf5 0%,
+		#ff82ec 25%,
+		#fc46e1);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffbdf5),
+		color-stop(0.25, #ff82ec),
+		to(#fc46e1));
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	border: 3px solid #ffffff;
+	-moz-box-shadow:
+		0px 3px 11px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,000,217,1);
+	-webkit-box-shadow:
+		0px 3px 11px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,000,217,1);
+	box-shadow:
+		0px 3px 11px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,000,217,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+
+button.listView3workerButton_qas, button.workerButton_qas{
+/* http://css3button.net/154091 */
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #ffffff;
+        padding: 10px 20px;
+        background: -moz-linear-gradient(
+                top,
+                #309df0 0%,
+                #30daf0);
+        background: -webkit-gradient(
+                linear, left top, left bottom,
+                from(#309df0),
+                to(#30daf0));
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        border-radius: 30px;
+        border: 3px solid #ffffff;
+        -moz-box-shadow:
+                0px 3px 11px rgba(000,000,000,0.5),
+                inset 0px 0px 1px rgba(047,193,242,1);
+        -webkit-box-shadow:
+                0px 3px 11px rgba(000,000,000,0.5),
+                inset 0px 0px 1px rgba(047,193,242,1);
+        box-shadow:
+                0px 3px 11px rgba(000,000,000,0.5),
+                inset 0px 0px 1px rgba(047,193,242,1);
+        text-shadow:
+                0px -1px 0px rgba(000,000,000,0.2),
+                0px 1px 0px rgba(255,255,255,0.3);
+}
+
+button.workerButton{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 5px 10px;
+    background: -moz-linear-gradient(
+	top,
+	#636363 0%,
+	#adadad);
+    background: -webkit-gradient(
+	linear, left top, left bottom,
+	from(#636363),
+	to(#adadad));
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    border: 3px solid #ffffff;
+    -moz-box-shadow:
+    0px 3px 11px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(047,193,242,1);
+    -webkit-box-shadow:
+    0px 3px 11px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(047,193,242,1);
+    box-shadow:
+    0px 3px 11px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(047,193,242,1);
+    text-shadow:
+    0px -1px 0px rgba(000,000,000,0.2),
+    0px 1px 0px rgba(255,255,255,0.3);
+}
+
+button.nullworkerButton{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight:bold;
+    color: #ffffff;
+    padding: 5px 20px;
+    background: -moz-linear-gradient(
+	top,
+	#ff0000 0%,
+	#ffa0a0);
+    background: -webkit-gradient(
+	linear, left top, left bottom,
+	from(#ff0000),
+	to(#ffa0a0));
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    border: 3px solid #ffffff;
+    -moz-box-shadow:
+    0px 3px 11px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(047,193,242,1);
+    -webkit-box-shadow:
+    0px 3px 11px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(047,193,242,1);
+    box-shadow:
+    0px 3px 11px rgba(000,000,000,0.5),
+    inset 0px 0px 1px rgba(047,193,242,1);
+    text-shadow:
+    0px -1px 0px rgba(000,000,000,0.2),
+    0px 1px 0px rgba(255,255,255,0.3);
+}
+
+.listView3statusButton_new, .listView3statusButton_tr_alloc, .listView3statusButton_tr_prog,
+.listView3statusButton_qas_alloc, .listView3statusButton_qas_prog, .listView3statusButton_delivery,
+.listView3statusButton_completed {
+    display:inline-block;
+
+    font-weight: bold;
+    font-size: 0.8em;
+
+    border-radius:100px;
+
+    width: 5em;
+
+    padding: 0.5em 0 0.5em 0;
+    margin:5px;
+
+    box-shadow: 1px 3px 1px 2px rgba(0,0,0,0.4);
+}
+
+.listView3statusButton_new {
+    background-color:#f66;
+    border:2px solid #f00;
+    color:#000;
+}
+
+.listView3statusButton_tr_alloc {
+    background-color:#ff6;
+    border:2px solid #ff0;
+    color:#000;
+}
+
+.listView3statusButton_tr_prog {
+    background-color:#6f6;
+    border:2px solid #0f0;
+    color:#000;
+}
+
+.listView3statusButton_qas_alloc {
+    background-color:#6ff;
+    border:2px solid #0ff;
+    color:#000;
+}
+
+.listView3statusButton_qas_prog {
+    background-color:#66f;
+    border:2px solid #00f;
+    color:#fff;
+}
+
+.listView3statusButton_delivery {
+    background-color:#000;
+    border:2px solid #fff;
+    color:#fff;
+}
+
+	.alert-box {
+		color:#555;
+		border-radius:10px;
+		font-size:12px;
+		padding:10px 36px;
+		margin:7px;
+	}
+
+	.alert-box:hover {
+	    border-width:4px;
+	    margin:-3px;
+	}
+
+	.alert-box span {
+		font-weight:bold;
+		text-transform:uppercase;
+	}
+	.error {
+		background:#ffecec url('/images/error.png') no-repeat 10px 50%;
+		border:1px solid #f5aca6;
+	}
+	.success {
+		background:#e9ffd9 url('/images/success.png') no-repeat 10px 50%;
+		border:1px solid #a6ca8a;
+	}
+	.warning {
+		background:#fff8c4 url('/images/warning.png') no-repeat 10px 50%;
+		border:1px solid #f2c779;
+	}
+	.notice {
+		background:#e3f7fc url('/images/notice.png') no-repeat 10px 50%;
+		border:1px solid #8ed9f6;
+	}

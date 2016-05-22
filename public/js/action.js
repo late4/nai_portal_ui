@@ -12,17 +12,17 @@ var actions=[
     {
 	"abbr":"TR",
 	"name":"Translation",
-	"role":"tr"
+	"role":"worker"
     },
     {
 	"abbr":"QAS",
 	"name":"Quality assurance",
-	"role":"qas"
+	"role":"worker"
     },
     {
-	"abbr":"Deliv.",
+	"abbr":"Deliv",
 	"name":"Delivery",
-	"role":"coordinator"
+	"role":"client"
     },
     {
 	"abbr":"INS",

@@ -1,0 +1,59 @@
+<!-- Worker Assign Panel -->
+<div id="workerAssign" onclick="event.stopPropagation();" style="display:none;">
+	<div id="workerAssignPanel">
+
+		<h1>Worker Assign Panel for [<%= casedata["clientname"] %> : <%= casedata["status"] %>] </h1>
+		<button onclick="location.href='/cases/<%= casedata["id"]" %>'" target="_blank" value="Case Detail" id="linkToCaseDetail" >
+
+		<p id="workerAssign_errorMsg"></p>
+
+		<div class="caseSummary">
+		
+			<p><%= casedata["src"] %> to <%= casedata["dst"] %>, <%= casedata["genre"] %>, <%= casedata["level"] %><br>
+			WC = [<%= casedata["wc"] %>], due: <%= casedata["due"] %><br>
+			memo: <%= casedata["memo"] %>
+			</p> 
+		</div>
+
+	<div class="availableWorkersFilterPanel">
+		フィルタ群
+	</div>
+
+		<button onclick= "askThirdToGetElementAndMnyOtherMethodsOhYeah();" id="mailToWorkers" >
+		
+		<select onchange="performedWCPeriodSelect(value)" id="performedWCPeriod" id="">
+			<option value="due">due</option>
+			<option value="month">Last month (30d)</option>
+			<option value="year" selected>Last year (365d)</option>
+		</select>
+		
+		select 実績期間
+	<div class="availableWorkersList">
+
+		<select onchange="availableWorkersSort(value)" name="availableWorkersSort" name="availableWorkersSort">
+			<option value="name">name</option>
+			<option value="timezone">timezone</option>
+			<option value="performedWC" selected> performedWC</option>
+		</select>
+		
+		<% for(var i=0;i<availableWorkers.length;i++){ %>
+			<div class="availableWorkersListLine">
+				<input type="checkbox" id=<%= availabilityWorkers[i]["accountId"]%> name="messageto" value="<%= availabilityWorkers[i]["accountId"]%>">
+				
+				<%= availabilityWorkers[i]["name"]%>
+				<%= availabilityWorkers[i]["country"]%>
+				<%= availabilityWorkers[i]["timezone"]%>
+				
+				<%= availabilityWorkers[i]["internalNote"]%>
+			
+				<%= availabilityWorkers[i]["performedWC"]%>
+				
+				<button id = individualWorkerAssign, onclick = "individualworkerAssign();"> </button>
+			</div>
+		<% } %>
+
+<!--		<button class="okButton" onclick="confirmworkerAssignCompletion();">OK</button> -->
+		<button class="cancelButton" onclick="cancelworkerAssignCompletion();">Cancel</button>
+		
+	</div>
+</div>

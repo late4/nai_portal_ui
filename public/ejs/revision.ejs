@@ -1,0 +1,29 @@
+<table>
+<% revisions.forEach(function(revision){ %>
+  <tr><th><%= revison["revisionNumber"] %><br><%= revision["revisionDate"] %><br>
+    <a href="/login_id/<%= revision["operator"]["loginId"] %>"><%= revision["operator"]["name"] %></a></th>
+    <% relevantFileNames.forEach(function(file){ %>
+      <% var filedata; %>
+      <% if ((filedata = revision["files"].find(function(elm){return elm["fileName"])==file;}) !=undefined ) { %>
+        <th><a href="<%= filedata["fileReference"] %>"><%= filedata["fileName"] %></a><br><%= filedata["status"] %></th>
+    <% } else { %>
+      <th>◯</th>
+    <% } %>
+  <% }); %>
+  </tr>
+<% }); %>
+
+
+
+  <tr><th>latest</th>
+    <% relevantFileNames.forEach(function(latestFile){ %>
+      <% var filedata; %>
+      <% if ((filedata = latestFiles.find(function(elm){return elm["fileName"])==latestFile;}) !=undefined ) { %>
+        <th><a href="<%= filedata["fileReference"] %>" %><%= filedata["filename"] %></th>
+      <% } else { %>
+        <th>◯</th>
+      <% } %>
+    <% }); %>
+  </tr>
+
+</table>

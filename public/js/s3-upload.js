@@ -25,13 +25,6 @@ function selectFile(num) {
      selector.click();
 }
 
-var options = {
-  stack: true,
-  margin: {
-    item: 5
-  }
-};
-
 function updateFile(num) {
      var display = document.getElementById("disp-file"+num);
      var selector = document.getElementById("f-file"+num);
@@ -62,7 +55,7 @@ function s3Upload(file) {
                }
           }
      );
-     var params = { Key: 'test-upload.txt', ContentType: file.type, Body: file }; //XXX: Key = filename is to be composed from case ID, hash, date/time.
+     var params = { Key: 'test-upload.txt', ContentType: file.type, Body: file };
      bucket.upload(params, function (err, data) {
           console.log(err ? "error" : "saved")
      });

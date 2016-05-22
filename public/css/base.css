@@ -2,9 +2,8 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
 
 body{
-/*    font-family: 'Enriqueta', serif;*/
-	font-family: 'PT Sans Narrow', sans-serif;
-	font-weight: 700;
+	font-family: "Optima", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+	background:#e6eae3;
 }
 
 header{
@@ -12,37 +11,41 @@ header{
     position:fixed;
     top:0px;
     left:0px;
-    height:50px;
+    height:90px;
     margin:0px;
     padding:0px;
     width:100%;
-    background-color:lightgray;
 }
 
 header h1{
     display:table-cell;
     margin:0px;
-    padding:0px 10px;
+    padding:10px 0 10px 30px;
+	font-weight:normal;
+	color:#a22041;
+	font-size:36px;
 }
 
 header div{
     display:table-cell;
     width:100%;
     margin:0px;
-    padding:0px 10px;
+    padding:0px 30px;
     text-align:right;
+	font-size:14px;
+	font-family: "Optima", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
 }
 
 nav{
     z-index:1;
     position:fixed;
-    top:50px;
+    top:65px;
     left:0px;
     height:30px;
     width:100%;
     margin:0px;
     padding:0px;
-    background-color:dimgray;
+    background-color:#d3cbc6;
     color:white;
     font-weight:bolder;
 }
@@ -68,6 +71,8 @@ nav li{
 
 nav li:hover{
     background-color:darkgray;
+	margin:4px;
+	border-radius:5px;
 }
 
 nav li.selected{
@@ -78,9 +83,12 @@ nav li a{
     display:table-cell;
     vertical-align:middle;
     width:100px;
-    height:30px;
+
     text-decoration:none;
-    color:white;
+    color:#000;
+	font-weight:normal;
+	font-size:16px;
+	border-right:1px solid #fff;
 }
 
 nav #searchResult{
@@ -90,9 +98,9 @@ nav #searchResult{
 aside{
     z-index:1;
     position:fixed;
-    top:80px;
+    top:120px;
     right:0px;
-    height:calc(100% - 80px);
+    height:calc(100% - 120px);
     width:20%;
     margin:0px;
     padding:0px;
@@ -105,13 +113,98 @@ aside{
 main{
     z-index:0;
     position:fixed;
-    top:80px;
+    top:120px;
     left:0px;
-    height:calc(100% - 80px);
+    height:calc(100% - 120px);
     width:80%;
     margin:0px;
     padding:0px;
     overflow-y:scroll;
-    background-color:whitesmoke;
 }
 
+
+/* clear fix */
+
+.clear {
+	clear:both;}
+.cf:before, .cf:after {
+    content: '';
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    zoom: 1; /* for IE6/7 */
+}
+
+
+/* input type */
+
+
+input:focus {
+    border:solid 1px #EEA34A;
+}
+
+input[type="text"] {
+      border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px -6px rgba(0, 0, 0, 0.5) inset;
+    color: #aaa;
+    padding: 4px;
+    width: 130px;
+}
+
+
+
+input[type="password"] {
+	property: value;
+}
+
+input[type="radio"] {
+	property: value;
+}
+
+input[type="checkbox"] {
+	property: value;
+}
+
+input[type="reset"] {
+	property: value;
+}
+
+input[type="submit"] {
+	property: value;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+}
+button, select {
+
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+input[type="button"],
+input[type="submit"] {
+   background-color: #dccb18;
+   color: #2a4073;
+   margin: 5px 5px 5px 5px;
+   border: 1px solid #f08300;
+   border-radius: 3px;
+    padding: 5px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    opacity: 0.8;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8;
+}

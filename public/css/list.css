@@ -1,89 +1,117 @@
 /* general styles for filter panel */
 
-main #filterPanel{
-    background-color:whitesmoke;
+main #filterPanel {
+	margin: 0 10px 10px 10px;
+    padding: 5px 7px;
+	overflow:hidden;
+
+}
+main #filterPanel:hover {
+    background-color: #fef4f4;
+    border-radius: 7px;
+
+}
+main #filtersHeader {
+	margin: 0px;
+	padding: 2px;
+	font-size: 15px;
+}
+main #filtersHeader span {
+	font-weight: normal;
+	font-size: 12px;
+}
+main #filters {
+	font-size: 15px;
+}
+main #filters div {
+	clear:both;
+	height:40px;
+	}
+main #filters dl {
+	float: left;
+	height: 38px;
+	margin:0;
+	padding:  5px 20px 5px 10px;
+	border-bottom: 1px solid #ccc;
+}
+main #filters dt {
+	margin: 5px 0 0 0;
+	padding: 5px 0;
+	float: left;
+	text-alogn: right;
+}
+main #filters dt:after {
+	content: '：';
+}
+main #filters dd {
+	margin: 0;
+	padding: 5px 20px 5px 0;
+	float: left;
 }
 
-main #filterPanel:hover{
-    background-color:lavender;
+main #filters select {
+	height:30px;
+	border:1px solid #ccc;
+	border-radius:7px;
+	padding:3px 8px;
+	font-size:14px;
 }
 
-main #filtersHeader{
-    margin:0px;
-    padding:2px;
-    font-size:15px;
-}
 
-main #filtersHeader span{
-    font-weight:normal;
-    font-size:12px;
-}
-
-main #filters{
-    font-size:15px;
-}
-
-main #filters dl{
-    
-}
-
-main #filters dt{
-    
-}
-
-main #filters dd{
-    
-}
+input.button-submit {
+	margin:12px;
+	padding:5px 20px;
+	width:200px;
+	height:34px;
+	font-size:14px;
+	letter-spacing:0.07em;
+	}
 
 
 
 /* general styles for list (listView3) */
 
-main .listView3{
-    padding:0px;
-    margin:0px;
-    overflow-x:scroll;
+main .listView3 {
+	clear:both;
+	margin: 0px;
+	padding: 0px;
+	overflow-x: scroll;
 }
-
-main .listView3Header{
-    min-width:982px;
-    width:100%;
-    padding:0px;
-    margin:0px;
-    background-color:lightgray;
-    border-style:solid;
-    border-color:silver;
-    border-width:1px;
+main .listView3Header {
+	min-width: 982px;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	background-color: lightgray;
+	border-style: solid;
+	border-color: silver;
+	border-width: 1px;
 }
-
-main .listView3Row{
-    min-width:982px;
-    width:100%;
-    padding:0px;
-    margin:0px;
-    background-color:whitesmoke;
-    border-style:solid;
-    border-color:silver;
-    border-width:0px 1px 1px;
+main .listView3Row {
+	min-width: 982px;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	background-color: whitesmoke;
+	border-style: solid;
+	border-color: silver;
+	border-width: 0px 1px 1px;
 }
-
-main .listView3Row:hover{
-    background-color:lightyellow;
+main .listView3Row:hover {
+	background-color: lightyellow;
 }
-
-main .listView3ColumnItem{
-    margin:0px;
-    padding:10px 2px;
-    display:table-cell;
-    text-align:center;
-    word-break:break-all;
+main .listView3ColumnItem {
+	margin: 0px;
+	padding: 10px 2px;
+	display: table-cell;
+	text-align: center;
+	word-break: break-all;
 }
-
-main .listView3Detail{
-    margin:0px 10px 10px;
-    padding:5px;
-    background-color:ghostwhite;
-    border-style:solid;
-    border-color:silver;
-    border-width:1px;
+main .listView3Detail {
+	margin: 0px 10px 10px;
+	padding: 5px;
+	background-color: ghostwhite;
+	border-style: solid;
+	border-color: silver;
+	border-width: 1px;
 }

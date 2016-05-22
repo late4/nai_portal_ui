@@ -12,10 +12,15 @@ function loadCaseDetail(_elmId,_templateUrl,_dataUrl){
     reqTemplate.onload=function(){
 	if(reqTemplate.readyState==4){
 	    template=reqTemplate.responseText;
+	    // TODO NAI custom API実装したらまとめて差し替え
 	    var reqData=new XMLHttpRequest();
 	    reqData.onload=function(){
 		if(reqData.readyState==4){
 		    data=JSON.parse(reqData.responseText);
+		    callNimonoAPI("WorkflowControlAPI","getWorkflow",{"caseId":data[0]["caseId"]},function(obj){
+		    	data[0]["timeline"]=obj["timeline"];
+		    	showContents(elmId);
+		    });
 		    showContents(elmId);
 		}
 	    };
@@ -25,6 +30,11 @@ function loadCaseDetail(_elmId,_templateUrl,_dataUrl){
     }
     reqTemplate.open("GET",templateUrl,true);
     reqTemplate.send();
+}
+
+function reloadCaseDetail(){
+	// TODO さすがにテンプレートまで再読みするのは手抜きすぎる。そのうち直す。
+	loadCaseDetail(elmId,templateUrl,dataUrl);
 }
 
 function showContents(elmId){
@@ -60,8 +70,17 @@ function showTimelineView(branchId,timelineContainerId){
 		timelineHTML+='<a href="worker/'+timelinedata[i]["worker"]+'"><button class="workerButton">'+timelinedata[i]["worker"]+'</button></a>';
 	    }
 	}
+	if(timelinedata[i]["status"]=="inprogress"){
+		timelineHTML+='<button onclick="if(!editMode){openMilestoneCompletionPanel('+branchnum+','+timelinedata[i]["id"]+',\''+timelinedata[i]["action"]+'\');}">Detail</button>'
+	}
 	timelineHTML+='</div>';
-	if(timelinedata[i]["role"]=="tr" || timelinedata[i]["role"]=="qas"){
+	if(timelinedata[i]["role"]=="worker"){ // TODO 判定条件・報酬情報(NAI custom API implementation)
+		if(typeof(timelinedata[i]["unitreward"])=="undefined"){
+			timelinedata[i]["unitreward"]=0;
+		}
+		if(typeof(timelinedata[i]["rewardratio"])=="undefined"){
+			timelinedata[i]["rewardratio"]=100;
+		}
 	    timelineHTML+='<div class="individualreward nooverflow"><span class="unitreward elmedit_editable"><span class="elmedit_view">@&yen;'+timelinedata[i]["unitreward"]+'</span><input class="elmedit_editor" type="number" min="0" value="'+timelinedata[i]["unitreward"]+'" style="display:none;"><span class="elmedit_datasource" style="display:none;">data['+branchnum+']["timeline"]['+i+']["unitreward"]</span><span class="elmedit_viewtemplate" style="display:none;">"@&yen;"+newValue</span></span><span class="rewardratio elmedit_editable"><span class="elmedit_view">&times;'+timelinedata[i]["rewardratio"]+'%</span><input class="elmedit_editor" type="number" min="0" value="'+timelinedata[i]["rewardratio"]+'" style="display:none;"><span class="elmedit_datasource" style="display:none;">data['+branchnum+']["timeline"]['+i+']["rewardratio"]</span><span class="elmedit_viewtemplate" style="display:none;">"&times;"+newValue+"%"</span></span><span class="totalreward elmedit_reqrecalc"><span class="elmedit_view">&yen;'+Math.floor(timelinedata[i]["unitreward"]*branchdata["wc"]*timelinedata[i]["rewardratio"]/100).toLocaleString()+'</span><span class="elmedit_recalcstatement" style="display:none;">Math.floor(data['+branchnum+']["timeline"]['+i+']["unitreward"]*data['+branchnum+']["wc"]*data['+branchnum+']["timeline"]['+i+']["rewardratio"]/100)</span><span class="elmedit_viewtemplate" style="display:none;">"&yen;"+newValue.toLocaleString()</span></span></div>';
 	}else{
 	    timelineHTML+='<div class="individualreward nooverflow"></div>'
@@ -112,16 +131,24 @@ function toggleEditMode(buttonElm){
     if(editMode){
 	// TODO:変更チェック・同期確認
 	// TODO:サーバ同期
-	var freenotes=document.getElementsByClassName("caseDetail_internalnote");
-	for(i=0;i<freenotes.length;i++){
-	    freenotes[i].style="overflow-y:visible;";
-	}
-	if(typeof buttonElm!="undefined"){
-	    buttonElm.className=buttonElm.className.substring(0,buttonElm.className.lastIndexOf(" selected"));
-	}
-	document.getElementById("caseDetail_header").innerHTML="Case details";
-	document.getElementsByTagName("main")[0].className="";
-	disableElmEdit();
+	//とりあえずmasterのタイムライン同期だけ実装(for 5/17 demo)
+	//NimonoAPI同期呼び出しモード作る？もしくは全まとめ更新API？
+	callNimonoAPI("WorkflowControlAPI","configureWorkflow",{"caseId":data[0]["caseId"],"changedTimeline":data[0]["timeline"]},function(obj){
+		console.log(obj);
+		var freenotes=document.getElementsByClassName("caseDetail_internalnote");
+		for(i=0;i<freenotes.length;i++){
+		    freenotes[i].style="overflow-y:visible;";
+		}
+		if(typeof buttonElm!="undefined"){
+	    	buttonElm.className=buttonElm.className.substring(0,buttonElm.className.lastIndexOf(" selected"));
+		}
+		document.getElementById("caseDetail_header").innerHTML="Case details";
+		document.getElementsByTagName("main")[0].className="";
+		disableElmEdit();
+		reloadCaseDetail();
+	});
+
+
     }else{
 	var freenotes=document.getElementsByClassName("caseDetail_internalnote");
 	for(i=0;i<freenotes.length;i++){
@@ -367,12 +394,12 @@ function addNewMilestoneToTimeline(precedingId,followingId,rowObj){
     var role=getRoleForAction(action);
     var id,startDate,endDate;
     if(precedingId==null && followingId==null){
-	id="0";
-	startDate=new Date;
+	id=0;
+	startDate=new Date();
 	endDate=new Date();
 	endDate.setDate(endDate.getDate()+1);
     }else if(precedingId==null){
-	id=(Number(followingId)-1).toString();
+	id=Number(followingId)-1;
 	for(i=0;i<editingTimelineData.length;i++){
 	    if(editingTimelineData[i]["id"]==followingId){
 		endDate=new Date(editingTimelineData[i]["start"]);
@@ -385,7 +412,7 @@ function addNewMilestoneToTimeline(precedingId,followingId,rowObj){
 	}
 	startDate.setDate(startDate.getDate()-1);
     }else if(followingId==null){
-	id=(Number(precedingId)+1).toString();
+	id=Number(precedingId)+1;
 	for(i=0;i<editingTimelineData.length;i++){
 	    if(editingTimelineData[i]["id"]==precedingId){
 		startDate=new Date(editingTimelineData[i]["end"]);
@@ -397,7 +424,7 @@ function addNewMilestoneToTimeline(precedingId,followingId,rowObj){
 	    }
 	}
     }else{
-	id=((Number(precedingId)+Number(followingId))/2).toString();
+	id=(Number(precedingId)+Number(followingId))/2;
 	for(i=0;i<editingTimelineData.length;i++){
 	    if(editingTimelineData[i]["id"]==precedingId){
 		startDate=new Date(editingTimelineData[i]["end"]);
@@ -422,14 +449,16 @@ function addNewMilestoneToTimeline(precedingId,followingId,rowObj){
 	"end":end,
 	"action":action,
 	"role":role,
+	"worker":"",
 	"status":"untouched"
     };
-    if(role!="client"){
-	newMilestoneObj["worker"]="";
-	if(role!="coordinator"){
+	if(role=="worker"){
 	    newMilestoneObj["unitreward"]=0;
 	    newMilestoneObj["rewardratio"]=0;
-	}
+    }else if(role=="coordinator"){
+    	newMilestoneObj["worker"]=data[editingTimelineBranchNum]["coordinatorid"];
+    }else if(role=="client"){
+    	newMilestoneObj["worker"]=data[editingTimelineBranchNum]["clientid"];
     }
     editingTimelineData.push(newMilestoneObj);
     sortEditingTimelineData();
@@ -494,6 +523,39 @@ function confirmTimelineEdit(){
 function cancelTimelineEdit(){
     document.getElementById("timelineEdit").style="display:none";
 }
+
+
+
+
+
+function openMilestoneCompletionPanel(branchNum,milestoneId,milestoneName){
+	document.getElementById("milestoneCompletion").style="display:block";
+	var reqTemplate=new XMLHttpRequest();
+	reqTemplate.onload=function(){
+		if(reqTemplate.readyState==4){
+			var panelTemplate=reqTemplate.responseText;
+			callNimonoAPI("WorkflowControlAPI","getActionStatusOfMilestone",{"caseId":data[branchNum]["caseId"],"milestoneId":milestoneId},function(obj){
+				document.getElementById("milestoneCompletionPanel").innerHTML=new EJS({text:panelTemplate}).render({branchId:data[branchNum]["branchid"],milestone:milestoneName,milestoneId:milestoneId,caseId:data[branchNum]["caseId"],data:obj["actionStatus"],msg:{"GeneralConfirmationAPI.confirm":"Confirm milestone completion."}});
+			});
+		}
+	};
+	reqTemplate.open("GET","/ejs/milestoneCompletionPanel.ejs",true);
+	reqTemplate.send();
+}
+
+function completeMilestoneStep(className,methodName,caseId){
+	callNimonoAPI(className,methodName,{"caseId":caseId},function(obj){
+		reloadCaseDetail();
+	});
+}
+
+function closeMilestoneCompletionPanel(){
+	document.getElementById("milestoneCompletion").style="display:none";
+}
+
+
+
+
 
 function downloadCurrentFilesOfAll(){
     alert("downloadCurrentFilesOfAll(): not implemented yet");

@@ -23,50 +23,51 @@ NOTIFICATION_SUBID_PATH = '/home/portal/web/tmp/subid'
 GOOGLE_API_KEY = 'AIzaSyBJrqFoisZ4mZIj1DigRpyX5i5VtE_ScyE'
 GCM_URI = 'https://android.googleapis.com/gcm/send'
 
-COMMON_JSES  = %w[ js/base.js js/ejs.js ]
-COMMON_CSSES = %w[ css/base.css css/decorations4.css ]
+COMMON_JSES  = %w[ js/nimono.js js/base.js js/ejs.js js/list.js js/langselector.js ]
+COMMON_CSSES = %w[ css/base.css css/decorations4.css css/list.css css/font-awesome.min.css ]
 TITLE_PREFIX = "NAIportal Coordinator View - "
 
 TABS = {
   :home => {
     :title => TITLE_PREFIX + "Home",
-    :jses =>  COMMON_JSES  +  %w[ notification/js/main.js js/list.js js/casesfilter.js js/langselector.js ],
+    :jses =>  COMMON_JSES  +  %w[ js/casesfilter.js ],
+#    :jses =>  COMMON_JSES  +  %w[ notification/js/main.js js/casesfilter.js js/langselector.js ],
     :csses => COMMON_CSSES +  %w[ css/caseslist.css ],
     :lpparams => %w[ ejs/base.ejs ejs/home.ejs ]
   },
   :cases => {
     :title => TITLE_PREFIX + "Cases",
-    :jses =>  COMMON_JSES  + %w[ js/list.js js/casesfilter.js js/langselector.js ],
+    :jses =>  COMMON_JSES  + %w[ js/casesfilter.js ],
     :csses => COMMON_CSSES + %w[ css/caseslist.css ],
     :lpparams => %w[ ejs/base.ejs ejs/cases.ejs ]
   },
   :messages => {
     :title => TITLE_PREFIX + "Messages",
-    :jses =>  COMMON_JSES  + %w[ js/list.js js/messagesfilter.js  ],
+    :jses =>  COMMON_JSES  + %w[ js/messagesfilter.js  ],
     :csses => COMMON_CSSES + %w[ css/messageslist.css ],
     :lpparams => %w[ ejs/base.ejs ejs/messages.ejs ]
   },
   :calendar => {
     :title => TITLE_PREFIX + "Calendar",
-    :jses =>  COMMON_JSES  + %w[ ],
-    :csses => COMMON_CSSES + %w[ css/caseslist.css ],
+    :jses =>  COMMON_JSES  + %w[ js/vis-timeline-graph2d.min.js ],
+    :csses => COMMON_CSSES + %w[ css/caseslist.css css/vis.min.css ],
     :lpparams => %w[ ejs/base.ejs ejs/calendar.ejs ]
   },
   :bills => {
     :title => TITLE_PREFIX + "Bills",
-    :jses =>  COMMON_JSES  + %w[ js/list.js js/billsfilter.js ],
+    :jses =>  COMMON_JSES  + %w[ js/billsfilter.js ],
     :csses => COMMON_CSSES + %w[ css/billslist.css ],
     :lpparams => %w[ ejs/base.ejs ejs/bills.ejs ]
   },
   :clients => {
     :title => TITLE_PREFIX + "Clients",
-    :jses =>  COMMON_JSES  + %w[ js/list.js js/clientsfilter.js ],
+    :jses =>  COMMON_JSES  + %w[ js/clientsfilter.js ],
     :csses => COMMON_CSSES + %w[ css/clientslist.css ],
     :lpparams => %w[ ejs/base.ejs ejs/clients.ejs ]
   },
   :workers => {
     :title => TITLE_PREFIX + "Workers",
-    :jses =>  COMMON_JSES  + %w[ js/list.js js/workersfilter.js ],
+    :jses =>  COMMON_JSES  + %w[ js/workersfilter.js ],
     :csses => COMMON_CSSES + %w[ css/workerslist.css ],
     :lpparams => %w[ ejs/base.ejs ejs/workers.ejs ]
   },
@@ -76,6 +77,13 @@ TABS = {
     :csses => COMMON_CSSES + %w[  ],
     :lpparams => %w[ ejs/base.ejs ejs/managements.ejs ]
   }
+#  ,
+#  :s3Upload=> {
+#    :title => TITLE_PREFIX + "s3Upload",
+#    :jses =>  COMMON_JSES  + %w[ /js/s3-upload.js ],
+#    :csses => COMMON_CSSES + %w[  ],
+#    :lpparams => %w[ ejs/table-row.ejs ]
+#  }
 }
 
 # main
@@ -99,7 +107,12 @@ TABS.keys.each do |key|
 end
 
 get '/' do
-  redirect '/login'
+  redirect '/home'
+#  redirect '/login'
+end
+
+get '/s3upload' do
+  File.read(File.join('public', 's3upload.html'))
 end
 
 get '/login' do
@@ -175,7 +188,7 @@ end
 
 get '/core-api-test' do
   lambda = Aws::Lambda::Client.new(region:"ap-northeast-1") # XXX: ~/.aws/config not read?
-  
+
   begin
     param = { :name => "134" }
     req = { :className => "TestAPI", :methodName => "helloName", :paramJSON => param.to_json }
@@ -190,11 +203,11 @@ end
 
 post '/req' do
   lambda = Aws::Lambda::Client.new(region:"ap-northeast-1") # XXX
-  
+
   begin
       param = request.body.read
       resp = lambda.invoke( function_name: "portalcore", payload: param)
-      
+
       if resp[:status_code] != 200
         raise "Response code " + resp[:status_code].to_s + " from NIMONO Core¥n¥n" + resp.payload.read
       end

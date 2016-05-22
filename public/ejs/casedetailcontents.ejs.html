@@ -14,7 +14,7 @@
     <td>
       <dl class="caseDetail_properties_fixedwidth">
 	<dt>Due</dt>
-	<dd style="width:200px;"><%= data[0]["estimatedDue"] %></dd>
+	<dd style="width:250px;"><%= data[0]["estimatedDue"] %></dd>
 	<dt>Price</dt>
 	<dd>&yen;<%= Number(data[0]["estimatedPrice"]).toLocaleString() %></dd>
       </dl>
@@ -25,7 +25,7 @@
     <td>
       <dl class="caseDetail_properties_fixedwidth">
 	<dt>Due</dt>
-	<dd style="width:200px;" class="elmedit_reqrecalc">
+	<dd style="width:250px;" class="elmedit_reqrecalc">
 	  <span class="elmedit_view"><%= data[0]["due"] %></span>
 	  <span class="elmedit_recalcstatement" style="display:none;">data[0]["due"]</span>
 	</dd>
@@ -69,7 +69,7 @@
 	  <select class="elmedit_editor" style="display:none;" id="dueTimezoneSelect-<%= data[0]["branchid"] %>"></select>
 	  <span class="elmedit_evalonchange" style="display:none;">data[0]["due"]=data[0]["due"].substring(0,data[0]["due"].lastIndexOf(" ")+1)+newValue;</span>
 	  <script>initTimezoneSelector("dueTimezoneSelect-<%= data[0]["branchid"] %>","<%= data[0]["due"].split(" ")[2] %>");</script>
-	</span>	
+	</span>
       </dd>
       <dt>Dest</dt>
       <dd class="caseDetail_dest elmedit_editable">
@@ -109,7 +109,7 @@
   </div>
   <div class="caseDetail_branchprogress">
     <div class="caseDetail_timeline" id="caseDetail_timeline_<%= data[0]["branchid"] %>" onclick="if(editMode){editTimeline('<%= data[0]["branchid"] %>','caseDetail_timeline_<%= data[0]["branchid"] %>');}"></div>
-    <script>showTimelineView("master","caseDetail_timeline_<%= data[0]["branchid"] %>");</script>
+    <script>showTimelineView("<%= data[0]["branchid"] %>","caseDetail_timeline_<%= data[0]["branchid"] %>");</script>
   </div>
   <div class="caseDetail_controls">
     <dl class="caseDetail_properties">
@@ -127,7 +127,7 @@
 <h2>Progress of sub-branches</h2>
 <% for(var i=1;i<data.length;i++){ %>
 <div class="caseDetail_branch">
-  
+
 </div>
 <% } %>
 <img src="img/add.png" width="60px;" alt="Add a new branch" onclick="showNewBranchPanel();">
@@ -141,5 +141,10 @@
     <table id="timelineEdit_editor"></table>
     <button class="okButton" onclick="confirmTimelineEdit();">OK</button>
     <button class="cancelButton" onclick="cancelTimelineEdit();">Cancel</button>
+  </div>
+</div>
+<!-- Milestone completion panel -->
+<div id="milestoneCompletion" onclick="event.stopPropagation();" style="display:none;">
+  <div id="milestoneCompletionPanel">
   </div>
 </div>
